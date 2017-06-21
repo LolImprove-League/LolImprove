@@ -40,3 +40,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# keys of project
+lolimprove
+lolimprove.pub
