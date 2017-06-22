@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {ChampionService} from "../services/champion-service/champion.service";
-import {Champion} from "../model/champion";
 import {Router} from "@angular/router";
+import {Champion} from "../model/champion";
 
 @Component({
   selector: 'champions',
@@ -32,6 +32,8 @@ export class ChampionsComponent implements OnInit {
 
   private getChampions(): void {
     this.championService.getChampions().then(champions => {
+      console.log('In champ component');
+      console.log(champions);
       this.champions = champions;
     });
   }

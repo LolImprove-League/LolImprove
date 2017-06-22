@@ -1,25 +1,24 @@
-import { Injectable } from '@angular/core';
-import {Champion} from "../../model/champion";
-import {Http, RequestOptions} from "@angular/http";
+import {Injectable} from "@angular/core";
+import {Http} from "@angular/http";
 import "rxjs/add/operator/toPromise";
 import {environment} from "../../../environments/environment";
+import {Champion} from "../../model/champion";
 
 @Injectable()
 export class ChampionService{
 
-  private apiUrl = `${environment.apiEndPointChampions}`;
+  private apiUrl = `${environment.apiUrl}`;
   private headers : Headers;
 
   constructor(private http: Http) {
-    this.headers = new Headers();
-    this.headers.append('X-Riot-Token', environment.apiKey);
-    this.headers.append('Access-Control-Allow-Origin', environment.apiEndPointChampions)
+
   }
 
   getChampions(): Promise<Champion[]> {
-    return this.http.get(this.apiUrl).toPromise().then(response => {
-      console.log(response.json());
-      return response.json().data as Champion []
+    return this.http.get(`${this.apiUrl}/${environment.allChampionsEndPoint}`).toPromise().then(response => {
+      let champs = response.json() as Champion[];
+      console.log(champs);
+      return response.json() as Champion [];
     }).catch(this.handleError);
   }
 

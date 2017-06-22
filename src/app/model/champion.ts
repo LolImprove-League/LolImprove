@@ -1,9 +1,29 @@
+import {Info} from "./info";
+import {Stats} from "./stats";
+import {Image} from "./image";
+import {Skin} from "./skin";
+import {Passive} from "./passive";
+import {Recommended} from "./recommended";
+import {ChampionSpell} from "./champion-spell";
+
 export class Champion {
-  rankedPlayEnabled: boolean; // Ranked play enabled flag.
-  botEnabled: boolean; // Bot enabled flag (for custom games).
-  botMnEnabled: boolean; // Bot Match Made enabled flag (for Co-op vs. AI games).
-  active: boolean; // Indicates if the champion is active.
-  freeToPlay: boolean; // Indicates if the champion is free to play. Free to play champions are rotated periodically.
-  id: number; // Champion ID
+
+  info: Info;
+  enemytips: string [];
+  stats: Stats;
+  name: string;
+  title: string;
+  image: Image;
+  tags: string [];
+  partype: string;
+  skins: Skin[];
+  passive: Passive;
+  recommended: Recommended[];
+  allytips: string [];
+  key: string;
+  lore: string;
+  id: number;
+  blurb: string;
+  spells: ChampionSpell[];
 
 }
