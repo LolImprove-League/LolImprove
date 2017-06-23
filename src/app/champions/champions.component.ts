@@ -2,8 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ChampionService} from "../services/champion-service/champion.service";
 import {Router} from "@angular/router";
 import {Champion} from "../model/champion";
-
-const MAXCARDS: number = 6;
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'champions',
@@ -13,8 +12,8 @@ const MAXCARDS: number = 6;
 export class ChampionsComponent implements OnInit {
 
   champions: Champion [];
-  championsCards: Champion[][] = [];
   selectedChampion: Champion;
+  imageUrl: string = environment.imageUrl;
 
   constructor(
     private championService: ChampionService,
@@ -41,21 +40,13 @@ export class ChampionsComponent implements OnInit {
         if (a.name > b.name) return 1;
         return 0;
       });
-
-      let nChamps = this.champions.length;
-      let offset = 0;
-      while (nChamps >= offset) {
-        let temp: Champion[] = [];
-        for (let i = 0; i < MAXCARDS; i++) {
-          console.log('currindex:' + (offset + i));
-          console.log(this.champions[offset + i]);
-          if (offset + i < nChamps) temp.push(this.champions[offset + i]);
-        }
-        offset += MAXCARDS;
-        this.championsCards.push(temp);
-      }
-
+      console.log(this.champions);
+      console.log(this.imageUrl);
     });
+  }
+
+  imageUrlForChampion(champion: Champion): string {
+    return environment.imageUrl + '/' + champion.image.group + '/' + champion.image.full;
   }
 
 }

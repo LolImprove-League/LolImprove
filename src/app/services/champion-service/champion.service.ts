@@ -15,7 +15,7 @@ export class ChampionService{
   }
 
   getChampions(): Promise<Champion[]> {
-    return this.http.get(`${this.apiUrl}/${environment.allChampionsEndPoint}`).toPromise().then(response => {
+    return this.http.get(`${this.apiUrl}/${environment.allChampionsEndPoint}?tags=image`).toPromise().then(response => {
       let champs = response.json() as Champion[];
       console.log(champs);
       return response.json() as Champion [];

@@ -1,11 +1,9 @@
-<div class="container-fluid">
-  <div class="row" *ngFor="let championSet of championsCards">
-    <div class="col-sm-4" *ngFor="let champion of championSet">
-      <div class="card">
-        <div class="card-block">
-          <h3 class="card-title">{{champion.name}}</h3>
-        </div>
-      </div>
+<div class="card-deck">
+  <div *ngFor="let champion of champions" class="card">
+    <img class="card-img-top" src="{{imageUrlForChampion(champion)}}" alt="Woops REKT">
+    <div class="card-block">
+      <h3 class="card-title">{{champion.name}}</h3>
+      <p class="card-link"></p>
     </div>
   </div>
 </div>

@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   apiUrl: "http://localhost:8080",
+  imageUrl: 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img',
   allChampionsEndPoint: 'champions'
 };
